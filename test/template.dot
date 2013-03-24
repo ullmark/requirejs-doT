@@ -1,0 +1,4 @@
+<h2>{{=it.heading}}</h2>
+<p>
+  {{=it.text}}
+</p>

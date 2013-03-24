@@ -1,5 +1,5 @@
 {
-  "name": "require-doT",
+  "name": "requirejs-doT",
   "version": "0.0.1",
   "description": "require-doT",
   "main": "doT.js",
@@ -13,8 +13,5 @@
   "author": "Markus Ullmark",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "8b91313dcca72edb59284a7124352a487677e8a9",
-  "devDependencies": {
-    "requirejs": "~2.1.5"
-  }
+  "gitHead": "8b91313dcca72edb59284a7124352a487677e8a9"
 }
