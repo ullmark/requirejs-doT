@@ -13,5 +13,10 @@
   "author": "Markus Ullmark",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "8b91313dcca72edb59284a7124352a487677e8a9"
+  "gitHead": "8b91313dcca72edb59284a7124352a487677e8a9",
+  "devDependencies": {
+    "mocha": "~1.8.2",
+    "requirejs": "~2.1.5",
+    "chai": "~1.5.0"
+  }
 }

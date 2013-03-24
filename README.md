@@ -29,7 +29,7 @@ Download or Clone this repository. Or use [bower][]
 bower install requirejs-dot
 ```
 
-To make it available in every module map it in require.js config
+To make it available in every module, map it in require.js config
 
 ```javascript
 map: {
