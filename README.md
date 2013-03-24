@@ -1,2 +1,3 @@
-require-doT
-===========
+require.js doT plugin
+=====================
+Loads doT templates.
