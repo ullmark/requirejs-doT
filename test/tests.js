@@ -1,6 +1,8 @@
 
 require.config({
-
+  paths: {
+    text: '../components/requirejs-text/text'
+  }
 });
 
 define(function() {

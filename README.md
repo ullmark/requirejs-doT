@@ -21,6 +21,13 @@ define(['doT!person'], function(tmpl) {
 });
 ```
 
+Configure a template:
+```
+require.config({
+  
+});
+```
+
 Installation
 ----------------------
 Download or Clone this repository. Or use [bower][]
@@ -29,15 +36,38 @@ Download or Clone this repository. Or use [bower][]
 bower install requirejs-dot
 ```
 
-To make it available in every module, map it in require.js config
+make an alias in paths...
 
 ```javascript
-map: {
-  '*': {
-    'doT': 'requirejs-dot/dot'
+require.config({
+  paths: {
+    doT: 'requirejs-dot/doT'
   }
-}
+});
 ```
+
+Config
+-------------------
+configuration are passed into doT.templateSettings.
+
+```javascript
+require.config({
+  doT: {
+    evaluate:    /\{\{([\s\S]+?)\}\}/g,
+    interpolate: /\{\{=([\s\S]+?)\}\}/g,
+    encode:      /\{\{!([\s\S]+?)\}\}/g,
+    use:         /\{\{#([\s\S]+?)\}\}/g,
+    define:      /\{\{##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\}\}/g,
+    conditional: /\{\{\?(\?)?\s*([\s\S]*?)\s*\}\}/g,
+    iterate:     /\{\{~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\}\})/g,
+    varname: 'it',
+    strip: true,
+    append: true,
+    selfcontained: false
+  }
+});
+```
+
 
 Optimized
 -----------------------

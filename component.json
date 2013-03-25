@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "requirejs-text": "~2.0.5",
-    "requirejs": "~2.1.5"
+    "requirejs": "~2.1.5",
+    "doT": "~0.2.0"
   }
 }

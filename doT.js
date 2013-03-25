@@ -4,10 +4,9 @@
 // This extremly simple requirejs plugin fetches doT templates
 // using the requirejs-text plugin and makes them ready to use.
 
-define(['./lib/doT'], function(doT) {
+define(function() {
 
   // ### load
-  // load
   var load = function(name, req, onload, config) {
     var text = req('text');
     var fileName = name;
