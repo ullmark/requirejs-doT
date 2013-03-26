@@ -1,7 +1,9 @@
 
 require.config({
   paths: {
-    text: '../components/requirejs-text/text'
+    dotCompiler: '../components/doT/doT',
+    text: '../components/requirejs-text/text',
+    doT: '../doT'
   }
 });
 
@@ -9,7 +11,12 @@ define(function() {
   mocha.setup('bdd');
 
   describe("requirejs-doT", function() {
-    it("does it");
+    it("does it", function(done) {
+      require(['doT:template'], function(tmpl) {
+        var html = tmpl({ heading: 'hello', text: 'world' });
+        done();
+      });
+    });
   });
 
   mocha

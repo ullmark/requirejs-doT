@@ -24,24 +24,36 @@ define(['doT!person'], function(tmpl) {
 Configure a template:
 ```
 require.config({
-  
+  config: {
+    'person': {
+
+    }
+  } 
 });
 ```
 
-Installation
-----------------------
-Download or Clone this repository. Or use [bower][]
+Installation & Dependencies
+---------------------------
+  - [doT][]
+  - [require-text][] (for development)
+
+Install with [bower][] to get them all. You can also manually 
+download or clone this repository and get the dependencies in whatever way you 
+see fit.
 
 ```
 bower install requirejs-dot
 ```
 
-make an alias in paths...
+In your [paths](http://requirejs.org/docs/api.html#config-paths) setup the mappings 
+to the dependencies (change to fit your setup).
 
 ```javascript
 require.config({
   paths: {
-    doT: 'requirejs-dot/doT'
+    doTCompiler: 'components/doT/doT',
+    text: 'components/requirejs-text/text',
+    doT: 'components/requirejs-dot/doT'
   }
 });
 ```

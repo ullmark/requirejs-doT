@@ -1,10 +1,10 @@
 
 // requirejs-doT
-// -------------
+// --------------
 // This extremly simple requirejs plugin fetches doT templates
 // using the requirejs-text plugin and makes them ready to use.
 
-define(function() {
+define(['doTCompiler'], function(doT) {
 
   // ### load
   var load = function(name, req, onload, config) {
