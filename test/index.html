@@ -12,10 +12,10 @@
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script type="text/javascript">
-        // Setup chai
         var expect = chai.expect;
+        mocha.setup('bdd');
     </script>
 
-    <script src="../node_modules/requirejs/require.js" data-main="tests"></script>
+    <script src="../node_modules/requirejs/require.js" data-main="runner"></script>
 </body>
 </html>

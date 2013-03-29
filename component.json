@@ -1,6 +1,6 @@
 {
   "name": "requirejs-doT",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "dependencies": {
     "requirejs-text": "~2.0.5",
     "requirejs": "~2.1.5",
