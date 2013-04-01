@@ -4,7 +4,7 @@ require.config({
   paths: {
     dotCompiler: '../components/doT/doT',
     text: '../components/requirejs-text/text',
-    dot: '../doT'
+    doT: '../doT'
   }
 });
 

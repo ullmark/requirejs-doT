@@ -14,6 +14,7 @@ module.exports = function(grunt) {
             text: 'components/requirejs-text/text',
             doT: 'doT'
           },
+          optimization: 'none',
           out: 'test/optimized.js'
         }
       }

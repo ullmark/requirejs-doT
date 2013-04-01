@@ -1,5 +1,5 @@
 
-define(['dot!template'], function(tmpl) {
+define(['doT!template'], function(tmpl) {
 
   describe("requirejs-doT", function() {
     it("loads and compiles the template", function() {
