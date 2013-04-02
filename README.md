@@ -1,48 +1,49 @@
 require.js [doT][] plugin
 =========================
-**Note:** initial version to be released shortly...
 
-This plugins loads dot-templates during development, and has the capabilities 
-to build optimized versions.
+This plugins loads dot-templates with [require-text][] during development, and has the capabilities 
+to build dependency free optimized versions with [r.js](http://requirejs.org/docs/optimization.html)
 
 Usage
 ----------------------
-Create your template: `person.dot`
+Create your template: `persons.dot`
 
-```
-<h2>{{=it.name}}</h2>
-<h3>{{=it.age}}</h3>
+```html
+<ul>
+{{~ it.persons :person }}
+  <li>
+    <h2>{{= person.name }}</h2>
+    <h3>{{= person.age }}</h3>
+  </li>
+{{~}}
+</ul>
 ```
 
 Use it:
 ```javascript
-define(['doT!person'], function(tmpl) {
-  var html = tmpl({ name: 'Lasse Kongo', age: 45 });
-});
-```
+define(['doT!persons'], function(tmpl) {
+  var data = {
+    persons: [
+      { name: 'foo', age: 30 },
+      { name: 'bar', age: 53 }
+    ]
+  };
 
-Configure a template:
-```
-require.config({
-  config: {
-    'person': {
-
-    }
-  } 
+  var html = tmpl(data);
 });
 ```
 
 Installation & Dependencies
 ---------------------------
-  - [doT][]
-  - [require-text][] (for development)
+  - [doT][] 
+  - [require-text][]
 
 Install with [bower][] to get them all. You can also manually 
-download or clone this repository and get the dependencies in whatever way you 
+download `doT.js` or clone this repository and get the dependencies in whatever way you 
 see fit.
 
 ```
-bower install requirejs-dot
+bower install requirejs-doT
 ```
 
 In your [paths](http://requirejs.org/docs/api.html#config-paths) setup the mappings 
@@ -51,16 +52,16 @@ to the dependencies (change to fit your setup).
 ```javascript
 require.config({
   paths: {
-    doTCompiler: 'components/doT/doT',
-    text: 'components/requirejs-text/text',
-    doT: 'components/requirejs-dot/doT'
+    doTCompiler:  'components/doT/doT',
+    text:         'components/requirejs-text/text',
+    doT:          'components/requirejs-dot/doT'
   }
 });
 ```
 
 Config
 -------------------
-templateSettings are passed into doT.templateSettings.
+templateSettings are passed into [doT][].templateSettings.
 
 ```javascript
 require.config({
@@ -83,11 +84,34 @@ require.config({
 });
 ```
 
-
 Optimized
 -----------------------
 In a optimized build, the templates is defined as compiled 
-[doT][] function. 
+[doT][] function. So in optimized mode it doesn't really have dependencies 
+at all, not even [doT][].
+
+The optimized version of the `persons.dot` template above.
+
+```javascript
+define("doT!persons",function(){return function(t){var n="<ul>",r=t.persons;if(r){var i,s=-1,o=r.length-1;while(s<o)i=r[s+=1],n+=" <li> <h2>"+i.name+"</h2> <h3>"+i.age+"</h3> </li>"}return n+="</ul>",n}})
+```
+
+If your application doesn't use [require-text][] or [doT][] somewhere else, you can go ahead and 
+exclude them from the build by using [excludeShallow](http://requirejs.org/docs/optimization.html#shallow) in your build.
+
+```javascript
+excludeShallow: ['doTCompiler', 'text', 'doT'],
+```
+
+Pitfalls
+-------------
+  - Remember to make sure your webserver can serve `.dot`-files during development (Or whatever extension you choose).
+  - Optimizing isn't tested for Rhino yet...
+
+Todo
+-------------
+Figure out more ways to test
 
 [doT]: http://olado.github.com/doT/
+[require-text]: https://github.com/requirejs/text
 [bower]: http://twitter.github.com/bower/

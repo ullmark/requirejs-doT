@@ -2,7 +2,7 @@
 // configure our modules
 require.config({
   paths: {
-    dotCompiler: '../components/doT/doT',
+    doTCompiler: '../components/doT/doT',
     text: '../components/requirejs-text/text',
     doT: '../doT'
   }

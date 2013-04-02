@@ -1,4 +1,9 @@
 
-define(['doT!./template'], function(tmpl) {
-  return tmpl({ heading: 'Hello', text: 'World!' });
+define(['doT!./persons'], function(tmpl) {
+  return tmpl({
+    persons: [
+      { name: 'Minsc', age: 35 },
+      { name: 'Boo', age: 2 }
+    ]
+  });
 });
