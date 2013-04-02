@@ -11,7 +11,7 @@
     "url": "git://github.com/ullmark/require-doT.git"
   },
   "author": "Markus Ullmark",
-  "license": "BSD",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "8b91313dcca72edb59284a7124352a487677e8a9",
   "devDependencies": {
