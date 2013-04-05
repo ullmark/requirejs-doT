@@ -39,8 +39,10 @@ define(['doTCompiler', 'text'], function(doT, text) {
     });
   }
 
-  // ### write
-  // used by the optimizer.
+  // ### [write](http://requirejs.org/docs/plugins.html#apiwrite)
+  // write is only used by the optimizer, and it only needs to be 
+  // implemented if the plugin can output something that would belong in an 
+  // optimized layer. It is called with the following arguments
   function write(pluginName, moduleName, writeFile) {
     if (buildMap.hasOwnProperty(moduleName)) {
       writeFile(

@@ -4,19 +4,27 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
 
+    // clean
+    // ---------------
+    // Clean away the old generated file to make sure we can generate a new.
+    clean: {
+      optimized: ['test/optimized/build.js']
+    },
+
+    // requirejs
+    // ---------------
     requirejs: {
       build: {
         options: {
-          baseUrl: '.',
-          name: 'test/build_test.js',
+          baseUrl: 'test/build',
+          include: ['doT!../persons'],
           paths: {
-            doTCompiler: 'components/doT/doT',
-            text: 'components/requirejs-text/text',
-            doT: 'doT'
+            doTCompiler: '../../components/doT/doT',
+            text: '../../components/requirejs-text/text',
+            doT: '../../doT'
           },
-          excludeShallow: ['doTCompiler', 'text', 'doT'],
-          optimization: 'none',
-          out: 'test/optimized.js'
+          stubModules: ['doTCompiler', 'text', 'doT'],
+          out: 'test/build/build.js'
         }
       }
     },
@@ -30,7 +38,16 @@ module.exports = function(grunt) {
       }
     },
 
-    // Task configuration.
+    // mocha
+    // ---------
+    mocha: {
+      dev: {
+        options: {
+          urls: ['http://localhost:8080/test/dev/']
+        }
+      }
+    },
+
     jshint: {
       options: {
         curly: true,
@@ -46,9 +63,7 @@ module.exports = function(grunt) {
         eqnull: true,
         browser: true,
         globals: {
-          jQuery: true,
-          define: true,
-          console: true
+          define: true
         }
       },
       gruntfile: {
@@ -58,21 +73,26 @@ module.exports = function(grunt) {
         src: ['doT.js']
       }
     },
+
+    // regarde
+    // --------
     regarde: {
       js: {
         files: ['**/*.js'],
-        tasks: ['jshint'],
-        spawn: true
+        tasks: ['jshint']
       }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-mocha');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'connect', 'regarde']);
+  grunt.registerTask('test', ['jshint', 'connect', 'mocha']);
 
 };

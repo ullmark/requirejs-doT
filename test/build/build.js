@@ -1,0 +1,1 @@
+define("doTCompiler",{}),define("text",{}),define("doT",{load:function(e){throw new Error("Dynamic load not allowed: "+e)}}),define("doT!../persons",function(){return function(t){var n="<ul>",r=t.persons;if(r){var i,s=-1,o=r.length-1;while(s<o)i=r[s+=1],n+=" <li> <h2>"+i.name+"</h2> <h3>"+i.age+"</h3> </li>"}return n+="</ul>",n}});

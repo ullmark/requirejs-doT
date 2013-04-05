@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+</head>
+<body>
+    <!-- Required for browser reporter -->
+    <div id="mocha"></div>
+
+    <!-- mocha -->
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script type="text/javascript">
+        var expect = chai.expect;
+        mocha.setup('bdd');
+    </script>
+
+    <script src="../../node_modules/requirejs/require.js"></script>
+    <script>
+        // configure
+        require.config({
+            baseUrl: '.',
+            paths: {
+                doTCompiler: '../../components/doT/doT',
+                text: '../../components/requirejs-text/text',
+                doT: '../../doT'
+            }
+        });
+
+        require(
+            // require our tests
+            ['./doT_tests'], 
+
+            // and run them
+            function() {
+                mocha.globals([])
+                .run();
+        });
+    </script>
+</body>
+</html>

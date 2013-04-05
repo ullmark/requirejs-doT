@@ -1,5 +1,5 @@
 
-define(['doT!persons'], function(tmpl) {
+define(['doT!../persons'], function(tmpl) {
 
   describe("requirejs-doT", function() {
     

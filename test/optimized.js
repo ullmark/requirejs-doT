@@ -1,1 +1,0 @@
-define("doT!test/persons",function(){return function(t){var n="<ul>",r=t.persons;if(r){var i,s=-1,o=r.length-1;while(s<o)i=r[s+=1],n+=" <li> <h2>"+i.name+"</h2> <h3>"+i.age+"</h3> </li>"}return n+="</ul>",n}}),define("test/build_test.js",["doT!./persons"],function(e){return e({persons:[{name:"Minsc",age:35},{name:"Boo",age:2}]})});

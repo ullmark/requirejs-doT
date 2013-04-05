@@ -97,10 +97,10 @@ define("doT!persons",function(){return function(t){var n="<ul>",r=t.persons;if(r
 ```
 
 If your application doesn't use [require-text][] or [doT][] somewhere else, you can go ahead and 
-exclude them from the build by using [excludeShallow](http://requirejs.org/docs/optimization.html#shallow) in your build.
+stub them from the build by using [stubModules](https://github.com/jrburke/r.js/blob/master/build/example.build.js#L295-L308) in your build.
 
 ```javascript
-excludeShallow: ['doTCompiler', 'text', 'doT'],
+stubModules: ['doTCompiler', 'text', 'doT']
 ```
 
 Pitfalls
